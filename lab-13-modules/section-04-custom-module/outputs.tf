@@ -1,25 +1,21 @@
-# Output definitions
+# Output variable definitions
 
-## S3 Bucket ARN
-output "website_bucket_arn" {
-  description = "ARN of the bucket"
-  value       = module.website_s3_bucket.arn
+output "arn" {
+  description = "ARN of the S3 Bucket"
+  value       = aws_s3_bucket.s3_bucket.arn
 }
 
-## S3 Bucket Name
-output "website_bucket_name" {
+output "name" {
   description = "Name (id) of the bucket"
-  value       = module.website_s3_bucket.name
+  value       = aws_s3_bucket.s3_bucket.id
 }
 
-## S3 Bucket Domain
-output "website_bucket_domain" {
-  description = "Name (id) of the bucket"
-  value       = module.website_s3_bucket.domain
+output "domain" {
+  description = "Domain Name of the bucket"
+  value       = aws_s3_bucket_website_configuration.web.website_domain
 }
 
-## S3 Bucket Endpoint
-output "website_bucket_endpoint" {
-  description = "Name (id) of the bucket"
-  value       = module.website_s3_bucket.endpoint
+output "endpoint" {
+  description = "Endpoint Information of the bucket"
+  value       = aws_s3_bucket_website_configuration.web.website_endpoint
 }
